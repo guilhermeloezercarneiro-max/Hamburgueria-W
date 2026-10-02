@@ -1,0 +1,71 @@
+:root {
+  --mostarda: #F2B705;
+  --ketchup: #C8321E;
+  --carvao: #231F1C;
+  --papel: #FFFDF6;
+  --linha: #E6DFCF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body { font-family: 'Work Sans', system-ui, sans-serif; color: var(--carvao); background: var(--papel); line-height: 1.6; }
+h1, h2, h3, .logo { font-family: 'Bowlby One', 'Impact', sans-serif; font-weight: 400; line-height: 1.1; }
+a { color: inherit; text-decoration: none; }
+
+/* HEADER + NAV + LOGO */
+header { position: sticky; top: 0; z-index: 10; background: var(--carvao); color: var(--papel); }
+.header-inner { max-width: 1100px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.logo { font-size: 1.4rem; }
+nav ul { list-style: none; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+nav a { font-weight: 500; }
+nav a:hover { color: var(--mostarda); }
+
+.btn { display: inline-block; background: var(--ketchup); color: #fff; font-weight: 700; padding: 12px 22px; border-radius: 8px; border: 2px solid var(--ketchup); transition: transform .15s, background .15s; }
+.btn:hover { transform: translateY(-2px); background: #a82614; }
+nav .btn { padding: 8px 16px; }
+
+/* MAIN */
+main { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+section { padding: 64px 0; }
+section + section { border-top: 2px dashed var(--linha); }
+section h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); text-align: center; margin-bottom: 32px; }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 36px; align-items: center; }
+.hero-img { background: var(--mostarda); border-radius: 18px; aspect-ratio: 4 / 3; display: grid; place-items: center; font-family: 'Bowlby One', sans-serif; }
+.hero-text h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 16px; }
+.hero-text p { font-size: 1.1rem; margin-bottom: 24px; max-width: 42ch; }
+
+/* Cards do cardápio */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card { background: #fff; border: 2px solid var(--carvao); border-radius: 14px; padding: 24px 20px; text-align: center; }
+.card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+.card p { margin-bottom: 12px; }
+.preco { font-weight: 700; font-size: 1.4rem; color: var(--ketchup); }
+.card.destaque { background: var(--mostarda); }
+.card.destaque .preco { color: var(--carvao); }
+
+/* Sobre */
+.sobre { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; }
+.sobre-img { background: var(--carvao); color: var(--mostarda); border-radius: 18px; aspect-ratio: 4 / 3; display: grid; place-items: center; font-family: 'Bowlby One', sans-serif; }
+.sobre-text h2 { text-align: left; }
+.sobre-text p { margin-bottom: 16px; max-width: 52ch; }
+.sobre-text ul { list-style: none; }
+.sobre-text li { padding-left: 28px; position: relative; margin-bottom: 6px; font-weight: 500; }
+.sobre-text li::before { content: "✓"; position: absolute; left: 0; color: var(--ketchup); font-weight: 700; }
+
+/* Contato */
+.contato { text-align: center; }
+.contato address { font-style: normal; margin-bottom: 24px; }
+.contato address p { margin-bottom: 4px; }
+
+/* FOOTER */
+footer { background: var(--carvao); color: var(--papel); text-align: center; padding: 22px 20px; font-size: .9rem; }
+
+/* Celular */
+@media (max-width: 760px) {
+  .hero, .sobre { grid-template-columns: 1fr; }
+  .cards { grid-template-columns: 1fr; }
+  .header-inner { justify-content: center; }
+  nav ul { justify-content: center; gap: 16px; }
+}
